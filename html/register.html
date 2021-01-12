@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./login-signUp.css" />
+    <link rel="stylesheet" href="../boostrap/bootstrap.min.css" />
+    <script src="../jquery/jquery.min.js" defer></script>
+    <script src="../boostrap/bootstrap.min.js" defer></script>
+    <title>SignUP</title>
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="alertEror text-center login-form">
+        <h2 class="alert alert-danger alert-dismisable" dismisable>error</h2>
+      </div>
+      <div class="login-form">
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="name">Password</label>
+            <input
+              type="password"
+              name="Password"
+              id="registerPassword"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="Password">Confirm Password</label>
+            <input
+              type="password"
+              name="Password"
+              id="confirmregisterPassword"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="checkbox">
+            <label>
+              <input
+                onchange="showPasswordvisible()"
+                type="checkbox"
+                name="showPassword"
+                id="registershowPassword"
+              />
+              Show password
+            </label>
+          </div>
+          <div class="btn-form">
+            <button class="btn text-capitalize btn-secondary" id="btn-check">
+              sign up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const showPassword = document.getElementById("registershowPassword");
+      const password = document.getElementById("registerPassword");
+      const confirmPassword = document.getElementById(
+        "confirmregisterPassword"
+      );
+      const form = document.getElementById("registerForm");
+      const btnCheck = document.querySelector("#btn-check");
+
+      btnCheck.disabled = true;
+      // show password functionality
+      function showPasswordvisible() {
+        if (
+          password.type === "password" ||
+          confirmPassword.type === "password"
+        ) {
+          password.type = "text";
+          confirmPassword.type = "text";
+        } else {
+          password.type = "password";
+          confirmPassword.type = "password";
+        }
+      }
+      function checkPassword() {
+        console.log("hello");
+        if (password.value.length <= 8 || confirmPassword.value.length <= 8) {
+          btnCheck.disabled = true;
+        } else {
+          btnCheck.disabled = false;
+          console.log(password.value.length, confirmPassword.value.length);
+        }
+      }
+
+      // function checkLength() {
+
+      // checkLength();
+    </script>
+    <script src="../index.js"></script>
+  </body>
+</html>

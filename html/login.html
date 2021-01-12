@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./login-signUp.css" />
+    <link rel="stylesheet" href="../boostrap/bootstrap.min.css" />
+    <script src="../jquery/jquery.min.js" defer></script>
+    <script src="../boostrap/bootstrap.min.js" defer></script>
+    <title>Login</title>
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="alertEror text-center login-form">
+        <h2 class="alert alert-danger alert-dismisable" dismisable>error</h2>
+      </div>
+      <div class="login-form">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="name">Password</label>
+            <input
+              type="password"
+              name="Password"
+              id="password"
+              class="form-control"
+            />
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input
+                onchange="showPasswordvisible()"
+                type="checkbox"
+                name="showPassword"
+                id="showPassword"
+              />
+              Show password
+            </label>
+          </div>
+          <div class="btn-form">
+            <button class="btn text-capitalize btn-secondary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const showPassword = document.getElementById("showPassword");
+      const password = document.getElementById("password");
+
+      // show password functionality
+      function showPasswordvisible() {
+        if (password.type === "password") {
+          password.type = "text";
+        } else {
+          password.type = "password";
+        }
+      }
+    </script>
+    <script src="../index.js"></script>
+  </body>
+</html>

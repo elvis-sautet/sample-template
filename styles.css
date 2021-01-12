@@ -1,0 +1,247 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Helvetica, sans-serif;
+}
+/* typography */
+p {
+  margin-bottom: 0.6em;
+  font-size: 1rem;
+}
+h1,
+h2 {
+  font-weight: 300;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  margin: 1em;
+}
+
+/* navigation */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.nav-container {
+  width: 90%;
+}
+.nav-menu {
+  background-color: #0a0909;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+.nav-bar {
+  height: 10vh;
+}
+.nav-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2em;
+}
+.nav-logo {
+  font-weight: 500;
+  color: rgb(13, 201, 176);
+  cursor: pointer;
+}
+.nav-logo big {
+  color: rgb(69, 176, 226);
+}
+.nav-links {
+  display: flex;
+}
+.nav-flex ul.nav-links {
+  flex: 0.6;
+  margin-left: 2em;
+}
+.nav-links a {
+  color: rgb(120, 203, 228);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.nav-links a:hover {
+  padding-bottom: 2px;
+  border-bottom: 2px solid white;
+}
+/* nav-burger */
+.burger {
+  display: none;
+  cursor: pointer;
+}
+.burger div {
+  height: 4px;
+  width: 25px;
+  background-color: white;
+  margin: 0.3em;
+  transition: transform 300ms ease-in-out;
+}
+/* =======
+ body/section
+============= */
+
+.section-body-flex {
+  display: flex;
+  flex-direction: column;
+}
+.section-searchForm {
+  width: 300px;
+  margin: 2em auto;
+}
+.searchForm-article {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+.searchForm-article input {
+  padding: 6px;
+  width: 100%;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  outline: none;
+}
+.searchForm-article input:focus {
+  border: 2px solid #2d8edd;
+}
+.searchForm-article input::placeholder {
+  color: #413541;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+}
+.searchForm-article button {
+  background-color: transparent;
+  border: 2px solid #2d8edd;
+  margin-left: 0.2em;
+  padding: 0.4em 22px;
+  color: black;
+  font-weight: 500;
+  outline: none;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: background-color 200ms ease-in-out;
+  cursor: pointer;
+}
+.searchForm-article button:hover {
+  background-color: #2d8edd;
+  color: white;
+}
+/* 
+=========
+hotels grids
+====== */
+.section-hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-flow: dense;
+
+  align-items: center;
+  justify-items: center;
+  grid-gap: 0.4em;
+}
+.hotel {
+  overflow: hidden;
+  border-radius: 12px;
+  /* margin: 12px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 250px;
+  /* background-color: #f2f2f2; */
+  text-align: center;
+  box-shadow: 3px 3px 5px rgba(133, 136, 136, 0.5);
+}
+
+.hotel .hotel-name {
+  /* font-weight: normal; */
+  color: #3520ad;
+  margin: 0.3em 0;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.hotel .hotel-description {
+  color: rgb(104, 101, 101);
+}
+.hotel-link {
+  margin-bottom: 0.8em;
+}
+.hotel-link a {
+  width: fit-content;
+  background-color: rgb(75, 46, 75);
+  padding: 6px 12px;
+  margin: 0.1rem 0 1em;
+  color: rgb(218, 209, 209);
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 200ms ease-in-out;
+}
+.hotel-link:hover a {
+  color: black;
+  background-color: transparent;
+  border: 1px solid #2d8edd;
+}
+@media screen and (max-width: 650px) {
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .nav-links {
+    position: absolute;
+    top: 8vh;
+    right: 0px;
+    flex-direction: column;
+    background-color: #0a0909;
+    height: 92vh;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 300ms ease;
+  }
+  .nav-flex ul.nav-links {
+    text-align: center;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+}
+.active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinksFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.toggle .line-1 {
+  transform: rotate(-45deg) translate(-5px, 7px);
+  background-color: #568fa0;
+}
+.toggle .line-2 {
+  opacity: 0;
+}
+.toggle .line-3 {
+  transform: rotate(45deg) translate(-5px, -8px);
+  background-color: #568fa0;
+}
